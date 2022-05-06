@@ -4,11 +4,21 @@
 package elevator;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    public static void main(String[] args) throws InterruptedException {
+        var elevator = new Elevator();
+        var t = new Thread(elevator);
+        t.start();
+        elevator.inClick(5);
+        Thread.sleep(1000);
+        elevator.outUpClick(3);
+        Thread.sleep(1000);
+        elevator.outDownClick(10);
+        Thread.sleep(1000);
+        elevator.outUpClick(3);
+        elevator.inClick(1);
+
+        Thread.sleep(10000);
+        t.interrupt();
     }
 }
