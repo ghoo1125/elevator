@@ -100,7 +100,9 @@ public class Elevator implements Runnable {
     }
 
     private void openOnButtonMatch() {
-        if (inButton.contains(currentFloor) || (direction == Direction.UP && outUpButton.contains(currentFloor) || (direction == Direction.DOWN && outDownButton.contains(currentFloor)))) {
+        if (inButton.contains(currentFloor)
+                || (direction == Direction.UP && outUpButton.contains(currentFloor)
+                || (direction == Direction.DOWN && outDownButton.contains(currentFloor)))) {
             System.out.println(currentFloor + " hodor!!!");
             inButton.remove(currentFloor);
             if (direction == Direction.UP) {
